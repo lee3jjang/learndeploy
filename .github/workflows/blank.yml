@@ -47,6 +47,8 @@ jobs:
   test_output:
     runs-on: ubuntu-latest
 
+    needs: build
+
     steps:
       - id: name
         run: |
