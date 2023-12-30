@@ -44,7 +44,7 @@ jobs:
             ${{ runner.OS }}-build-${{ env.cache-name }}-
             ${{ runner.OS }}-build-
 
-  test_output:
+  test-output:
     runs-on: ubuntu-latest
 
     needs: build
@@ -58,3 +58,14 @@ jobs:
       - run: echo $AGE
         env:
           AGE: 99
+
+  docker:
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+      - name: Build image
+        run: docker build -t basic .
+      - name: Run image
+        run: docker run basic
