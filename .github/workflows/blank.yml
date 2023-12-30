@@ -22,3 +22,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  test_output:
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: name
+        run: |
+          echo $GITHUB_OUTPUT
+          echo age=34 >> $GITHUB_OUTPUT
+      - run: echo ${{steps.name.outputs.age}}
