@@ -31,3 +31,6 @@ jobs:
           echo $GITHUB_OUTPUT
           echo age=34 >> $GITHUB_OUTPUT
       - run: echo ${{steps.name.outputs.age}}
+      - run: echo $AGE
+        env:
+          AGE: 99
