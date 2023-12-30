@@ -7,6 +7,12 @@ on:
     branches: ["main"]
 
   workflow_dispatch:
+    inputs:
+      hobbang:
+        description: "Person to greet"
+        default: "World"
+        required: true
+        type: string
 
   schedule:
     - cron: "* * * * *"
@@ -17,6 +23,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - run: echo Hello ${{inputs.hobbang}}
 
       - name: Use Node.js
         uses: actions/setup-node@v4.0.1
