@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: 18
 
+      - run: echo ${{ hashFiles('yarn.lock') }}
+
       - name: Cache node modules
         uses: actions/cache@v2.0.0
         env:
